@@ -60,3 +60,12 @@ CovXY <- EXY - EX*EY
 b1 <- CovXY / VarX
 # OLS intercept
 b0 <- EY - b1*EX
+#Example Regression Problem
+data("ceosal1")
+reg <- lm(salary ~ roe, data=ceosal1)
+b0 = reg$coefficients[1]
+b1 = reg$coefficients[2]
+#predict salary if roe is -15
+ans <- b0 + b1*(-15)
+#predict change in salary if roe changes by -5
+change <- b1* (-5)
