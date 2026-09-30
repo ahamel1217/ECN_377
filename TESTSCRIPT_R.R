@@ -45,8 +45,8 @@ c(b0=b0, b1=b1)
 yhat <- b0 + b1*x
 
 #EXAMPLE PROBLEM TO FIND OLS INTERCEPT b0
-x <- c(1,5,1)
-y <- c(9,8,0)
+x <- c(7,2,2)
+y <- c(9,2,11)
 # Find E[X] and E[Y]
 EX <- mean(x)
 EY <- mean(y)
@@ -60,6 +60,7 @@ CovXY <- EXY - EX*EY
 b1 <- CovXY / VarX
 # OLS intercept
 b0 <- EY - b1*EX
+yhat <- b0 + b1*1
 #Example Regression Problem
 data("ceosal1")
 reg <- lm(salary ~ roe, data=ceosal1)
@@ -68,4 +69,13 @@ b1 = reg$coefficients[2]
 #predict salary if roe is -15
 ans <- b0 + b1*(-15)
 #predict change in salary if roe changes by -5
-change <- b1* (-5)
+change <- .3* 6
+
+
+yhat1 <- -2+(0.3*8)
+yhat2 <- -2+(0.3*2)
+yhat3 <- -2+(0.3*8)
+yhat <- c(0.4, -1.4, 0.4)
+y <- c(8, 11, 11)
+thing <- (y-yhat)^2
+sum(thing)
