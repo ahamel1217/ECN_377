@@ -14,68 +14,15 @@ probs = c(prob, prob_)
 EX  <- sum(x * p) #setting variable (ans in values section)
 EX2 <- sum(x^2 *p) #setting variable
 VarX <- EX2 - EX^2 #setting variable
-#Population Standard deviation
+#Standard deviation
 St.Dev <- sqrt(VarX)
 #Population Covariance
-xj <- c(1,0,6)          # x for pairs (0,0) (0,1) (1,0) (1,1)
-yj <- c(8,5,7)          # y for those same pairs
-pj <- c(0.2,0.3,0.5)  # probabilities
+xvalues <- c(0, 0, 1, 1)          # x for pairs (0,0) (0,1) (1,0) (1,1)
+yvalues <- c(0, 1, 0, 1)          # y for those same pairs
+probs <- c(0.4, 0.1, 0.1, 0.4)  # probabilities
 EX  <- sum(xj * pj)               
 EY  <- sum(yj * pj)              
 EXY <- sum(xj * yj * pj)         
 Cov <- EXY - EX*EY    # answer
-#Population Correlation of previous example
+# Correlation of previous example
 Cor <- Cov / (sdX * sdY)
-#Deriving b1 (OLS slope)
-b1 <- cov(x,y) / var(x)  
-#Deriving b0
-b0 <- mean(y) - b1 * mean(x) 
-#Fitted line from above
-y = b0 + b1*X
-
-#EXAMPLE PROBLEM to predict yhat
-x <- c(8,4,4)
-y <- c(1,1,4)
-# b1
-b1 <- cov(x,y) / var(x)
-# b0
-b0 <- mean(y) - b1 * mean(x)
-# Predict when x = whatever
-c(b0=b0, b1=b1)
-yhat <- b0 + b1*x
-
-#EXAMPLE PROBLEM TO FIND OLS INTERCEPT b0
-x <- c(7,2,2)
-y <- c(9,2,11)
-# Find E[X] and E[Y]
-EX <- mean(x)
-EY <- mean(y)
-# Find E[X^2] and E[XY]
-EX2 <- mean(x^2)
-EXY <- mean(x*y)
-# Population variance and covariance
-VarX <- EX2 - EX^2
-CovXY <- EXY - EX*EY
-# OLS slope
-b1 <- CovXY / VarX
-# OLS intercept
-b0 <- EY - b1*EX
-yhat <- b0 + b1*1
-#Example Regression Problem
-data("ceosal1")
-reg <- lm(salary ~ roe, data=ceosal1)
-b0 = reg$coefficients[1]
-b1 = reg$coefficients[2]
-#predict salary if roe is -15
-ans <- b0 + b1*(-15)
-#predict change in salary if roe changes by -5
-change <- .3* 6
-
-
-yhat1 <- -2+(0.3*8)
-yhat2 <- -2+(0.3*2)
-yhat3 <- -2+(0.3*8)
-yhat <- c(0.4, -1.4, 0.4)
-y <- c(8, 11, 11)
-thing <- (y-yhat)^2
-sum(thing)
