@@ -78,3 +78,23 @@ R2 <- 1 - (SSR/SST)
 
 #avg wage given educ=16
 mean(wage1$wage[wage1$educ ==16])
+
+#LOG TABLE
+#level-level -> changey = b1 * changex
+#level-log -> changey = (b1/100%) * %changex
+changey <- (50.8/100) * 20
+#log-level -> %changey = 100% * b1 * changex
+changey <- 100*.089*3
+#log-log -> %changey = b1 * %changex
+changey <- .78*(-15)
+#log-log -> b1 does not change; b0 changes
+#level-level -> x*c, then b1*1/c, b0 unchanged
+x <- c(3,5,8,9,10)
+SSTx <- sum((x - mean(x))^2)
+o <- sqrt(SSR/ (n-2))
+o <- sqrt(285/7)
+sdb1 <- o / sqrt(SSTx)
+o2 <- SSR/ (n-2)
+seb1 <- o / sqrt(SSTx)
+seb1 <- o/sqrt(5)
+Varb1 = o^2/SSTx
