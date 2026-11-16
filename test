@@ -189,3 +189,12 @@ se <- sigma/sqrt(SSTj* (1-R2))
 #Check
 summary(regMLR)$coefficients
 summary(regMLR)
+#~~~~~~~~~~~~t-test~~~~~~~~~~~~~~~~~~~~~~~~~
+library(wooldridge)
+reg <- lm(log(wage) ~ educ + exper + tenure, data=wage1)
+s <- summary(reg)$coefficients
+b2 <- s[3,1]
+se2 <- s[3,2]
+t_hand2 <- b2/se2
+t_table2 <- s[3,3]
+t <- bjhat/sebj
